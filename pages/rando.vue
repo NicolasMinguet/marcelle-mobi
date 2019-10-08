@@ -68,18 +68,6 @@ export default {
       this.markerLatLng = [lat, lng]
       this.flyTo([lat, lng], 18)
     }
-  },
-  beforeMount() {
-    cacApp.load(
-      'map',
-      { geoportalApiKey: 'eimxgrewze0nnud747cp88qz' }
-      // {
-      //   tracks: [
-      //     'http://mytracks.com/mytrack.gpx',
-      //     'http://mypoints.net/pois.kml'
-      //   ]
-      // }
-    )
   }
 }
 </script>
