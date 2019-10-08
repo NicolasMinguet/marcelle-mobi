@@ -48,7 +48,7 @@
       <p>à faire aujourd'hui :</p>
       <div class="activitiesProposees d-flex justify-content-around">
         <span v-for="(act, id) in $store.getters['dashboard/activitesProposees']" :key="id">
-          <b-button v-b-tooltip.hover :title="act.name" @click="truc()" class="p-0">
+          <b-button v-b-tooltip.hover :title="act.name" @click="truc(act.name)" class="p-0">
             <i class="fa" :class="act.icon"></i>
           </b-button>
         </span>
@@ -105,9 +105,10 @@ export default {
     }
   },
   methods: {
-    truc: () => {
-      console.log(event.target)
-      // ev.style.fontSize = '43px'
+    truc(actName) {
+      console.log(actName)
+
+      this.$router.push({ path: '/hike' })
     }
   },
   created() {

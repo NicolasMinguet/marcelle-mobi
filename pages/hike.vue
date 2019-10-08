@@ -1,55 +1,85 @@
-<!-- pages/le_nom_de_ma_page.vue => localhost:3000/le_nom_de_ma_page -->
 <template>
-  <div class="text-center pt-5">
-    <h1 id="titre">Click HERE</h1>
-    <h2>Je suis un example de page en VanillaJS</h2>
-    <div id="mapid"></div>
-  </div>
+  <div id="mapid"></div>
 </template>
+
 <script>
-export default {
-  mounted() {
-    // VOTRE JS ICI
-    head: {
-      title: "Marcelle-mobi";
-      meta: [
-        { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          hid: "description",
-          name: "description",
-          content: "Déplacez-vous autrement dans Marseille"
-        }
-      ];
-      link: [
-        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        {
-          rel: "stylesheet",
-          href: "https://unpkg.com/leaflet@1.5.1/dist/leaflet.css",
+import * as L from 'leaflet'
+import 'leaflet-routing-machine'
+function createMap() {
+  //the point of launching page
+  var mymap = L.map('mapid').setView([43.295336, 5.373907], 15)
 
-          integrity:
-            "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==",
-
-          crossorigin: ""
-        }
-      ];
+  L.tileLayer(
+    'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoicm9iZXJ0cGV0cnQiLCJhIjoiY2sxaHp2YThkMWYxYzNjcW0zYWx2dWtmeSJ9.FztRaZQJmLRV9fBarMYCIg',
+    {
+      attribution:
+        'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'your.mapbox.access.token'
     }
-    const titre = document.getElementById("titre");
-    titre.onclick = () => {
-      alert("Vous avez cliqué");
-    };
-  }
-};
-</script>
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-   crossorigin=""></script>
-<style scoped>
-h1 {
-  color: red;
+  ).addTo(mymap)
+
+  // --- add points on the map ---
+  //var marker = L.marker([43.265744, 5.395173]).addTo(mymap);
+
+  //var marker2 = L.marker([43.261088, 5.39804]).addTo(mymap);
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(mymap)
+
+  // --- creating hiking paths ---
+  L.Routing.control({
+    waypoints: [
+      L.latLng(43.261088, 5.39804),
+      L.latLng(43.262, 5.4),
+      L.latLng(43.261088, 5.39804)
+    ],
+    routeWhileDragging: true
+  }).addTo(mymap)
+
+  L.Routing.control({
+    waypoints: [
+      L.latLng(43.301999, 5.36554),
+      L.latLng(43.331999, 5.39554),
+      L.latLng(43.381999, 5.30554)
+    ],
+    routeWhileDragging: true
+  }).addTo(mymap)
+
+  // --- change icons ----
+  var myIcon = L.icon({
+    iconUrl: require('~/assets/images/hiking.png'),
+    iconSize: [35, 35],
+    iconAnchor: [0, 0],
+    popupAnchor: [0, 0],
+    shadowSize: [0, 0],
+    shadowAnchor: [0, 0]
+  })
+
+  L.marker([43.401999, 5.30804], { icon: myIcon }).addTo(mymap)
 }
 
+export default {
+  mounted() {
+    createMap()
+  }
+}
+</script>
+
+<style>
 #mapid {
-  height: 180px;
+  height: 100vh;
+  width: 100vw;
+}
+
+div.line-mouse-marker {
+  background-color: #ffffff;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+.leaflet-bar {
+  display: none;
 }
 </style>
