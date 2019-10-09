@@ -66,17 +66,21 @@ function createMap() {
   // console.log(hikings['kml']['Document']['Folder']['Placemark'][0]['Point'][
   //         'coordinates'
   //       ].split(',')[1])
-  // console.log(hikings['kml']['Document']['Folder'])
+  // console.log(footballs['locations'])
 
-  footballs['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+  footballs.forEach(function(football) {
     const mapMarker = L.marker(
       [
-        hike['Point']['coordinates'].split(',')[1],
-        hike['Point']['coordinates'].split(',')[0]
+        football['coordinates']['latitude'],
+        football['coordinates']['longitude']
       ],
-      { icon: myIcon, name: hike['name'], description: hike['description'] }
+      {
+        icon: myIcon,
+        name: football['name'],
+        description: football['description']
+      }
     ).addTo(mymap)
-    mapMarker.bindPopup(hike['name']).openPopup()
+    mapMarker.bindPopup(football['name']).openPopup()
   })
 }
 export default {

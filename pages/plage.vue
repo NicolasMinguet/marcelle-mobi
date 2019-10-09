@@ -68,15 +68,12 @@ function createMap() {
   //       ].split(',')[1])
   // console.log(hikings['kml']['Document']['Folder'])
 
-  plages['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+  plages.forEach(function(plage) {
     const mapMarker = L.marker(
-      [
-        hike['Point']['coordinates'].split(',')[1],
-        hike['Point']['coordinates'].split(',')[0]
-      ],
-      { icon: myIcon, name: hike['name'], description: hike['description'] }
+      [plage['coordinates']['latitude'], plage['coordinates']['longitude']],
+      { icon: myIcon, name: plage['name'], description: plage['description'] }
     ).addTo(mymap)
-    mapMarker.bindPopup(hike['name']).openPopup()
+    mapMarker.bindPopup(plage['name']).openPopup()
   })
 }
 export default {

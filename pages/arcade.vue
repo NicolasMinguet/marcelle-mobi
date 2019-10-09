@@ -69,15 +69,12 @@ function createMap() {
   // console.log(hikings['kml']['Document']['Folder'])
 
   // changer l'arborescence (elle devrait etre plus simple)
-  arcades['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+  arcades.forEach(function(arcade) {
     const mapMarker = L.marker(
-      [
-        hike['Point']['coordinates'].split(',')[1],
-        hike['Point']['coordinates'].split(',')[0]
-      ],
-      { icon: myIcon, name: hike['name'], description: hike['description'] }
+      [arcade['coordinates']['latitude'], arcade['coordinates']['longitude']],
+      { icon: myIcon, name: arcade['name'], description: arcade['description'] }
     ).addTo(mymap)
-    mapMarker.bindPopup(hike['name']).openPopup()
+    mapMarker.bindPopup(arcade['name']).openPopup()
   })
 }
 export default {

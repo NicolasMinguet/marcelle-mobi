@@ -65,7 +65,7 @@ function createMap() {
   // console.log(hikings['kml']['Document']['Folder']['Placemark'][0]['Point'][
   //         'coordinates'
   //       ].split(',')[1])
-  // console.log(hikings['kml']['Document']['Folder'])
+  console.log(hikings)
 
   hikings['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
     const mapMarker = L.marker(

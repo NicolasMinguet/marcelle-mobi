@@ -68,15 +68,19 @@ function createMap() {
   //       ].split(',')[1])
   // console.log(hikings['kml']['Document']['Folder'])
 
-  nautiques['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+  nautiques.forEach(function(nautique) {
     const mapMarker = L.marker(
       [
-        hike['Point']['coordinates'].split(',')[1],
-        hike['Point']['coordinates'].split(',')[0]
+        nautique['coordinates']['latitude'],
+        nautique['coordinates']['longitude']
       ],
-      { icon: myIcon, name: hike['name'], description: hike['description'] }
+      {
+        icon: myIcon,
+        name: nautique['name'],
+        description: nautique['description']
+      }
     ).addTo(mymap)
-    mapMarker.bindPopup(hike['name']).openPopup()
+    mapMarker.bindPopup(nautique['name']).openPopup()
   })
 }
 export default {
