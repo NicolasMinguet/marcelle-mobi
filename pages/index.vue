@@ -156,13 +156,6 @@ export default {
     this.$store.dispatch('dashboard/fetchAirQuality')
     this.$store.dispatch('dashboard/fetchWeather')
     this.$store.dispatch('dashboard/fetchAlertsRtm')
-  },
-  mount() {
-    const hiking = this.document.querySelector('.fa-hiking')
-    hiking.addEventListener('click', () => {
-      console.log('yo')
-      hiking.style.fontSize = '43px'
-    })
   }
 }
 </script>
