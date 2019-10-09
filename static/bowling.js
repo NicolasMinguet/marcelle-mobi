@@ -2,19 +2,12 @@ const bowlings =
   [
     {
       "coordinates": {
-        "latitude": "5.365540",
-        "longitude": "43.301999",
+        "latitude": "43.2966",
+        "longitude": "5.427559999999971",
       },
-      "name": "toto",
+      "name": "BowlingStar Marseille",
       "description": "ouoau",
     },
-    {
-      "coordinates": {
-        "latitude": "5.365540",
-        "longitude": "43.301999",
-      },
-      "name": "toto",
-      "description": "ouoau",
-    }
+
   ]
 export default bowlings;

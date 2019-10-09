@@ -2,19 +2,12 @@ const arcades =
   [
     {
       "coordinates": {
-        "latitude": "5.365540",
-        "longitude": "43.301999",
+        "latitude": "43.289625",
+        "longitude": "5.480487",
       },
-      "name": "toto",
-      "description": "ouoau",
-    },
-    {
-      "coordinates": {
-        "latitude": "5.365540",
-        "longitude": "43.301999",
-      },
-      "name": "toto",
+      "name": "Arcade, La tête dans les nuages",
       "description": "ouoau",
     }
+
   ]
 export default arcades;
