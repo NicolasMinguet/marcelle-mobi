@@ -52,16 +52,6 @@ function createMap() {
   //   routeWhileDragging: true
   // }).addTo(mymap)
 
-  // --- change icons ----
-  var myIcon = L.icon({
-    iconUrl: require('~/assets/images/hiking.png'),
-    iconSize: [35, 35],
-    iconAnchor: [0, 0],
-    popupAnchor: [0, 0],
-    shadowSize: [0, 0],
-    shadowAnchor: [0, 0]
-  })
-
   // le console log fonction pour
   // console.log(hikings['kml']['Document']['Folder']['Placemark'][0]['Point'][
   //         'coordinates'
@@ -69,6 +59,15 @@ function createMap() {
   // console.log(hikings)
 
   hikings['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+    // --- change icons ----
+    var myIcon = L.icon({
+      iconUrl: require(`~/assets/images/${hike['R_difficulte']}.png`),
+      iconSize: [35, 35],
+      iconAnchor: [0, 0],
+      popupAnchor: [0, 0],
+      shadowSize: [0, 0],
+      shadowAnchor: [0, 0]
+    })
     const mapMarker = L.marker(
       [
         hike['Point']['coordinates'].split(',')[1],
