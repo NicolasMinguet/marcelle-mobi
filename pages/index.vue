@@ -107,8 +107,49 @@ export default {
   methods: {
     truc(actName) {
       console.log(actName)
+      var trueName
 
-      this.$router.push({ path: actName })
+      switch (actName) {
+        case 'Randonnée':
+          trueName = 'randonnee'
+          break
+
+        case 'Bowling':
+          trueName = 'bowling'
+          break
+
+        case 'Cinéma':
+          trueName = 'cinema'
+          break
+
+        case 'Football':
+          trueName = 'football'
+          break
+
+        case 'Sports nautique':
+          trueName = 'nautique'
+          break
+
+        case 'Arcade':
+          trueName = 'arcade'
+          break
+
+        case 'Plage':
+          trueName = 'plage'
+          break
+
+        case 'Basket':
+          trueName = 'basket'
+          break
+
+        case 'Running':
+          trueName = 'running'
+          break
+
+        default:
+          break
+      }
+      this.$router.push({ path: trueName })
     }
   },
   created() {

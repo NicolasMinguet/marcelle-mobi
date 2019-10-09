@@ -1,10 +1,13 @@
 <template>
-  <div id="mapid"></div>
+  <div id="mapid">
+    <RandoFilter />
+  </div>
 </template>
 
 <script>
 import hikings from '../static/hiking.js'
 import * as L from 'leaflet'
+import RandoFilter from '~/components/RandoFilter.vue'
 // import 'leaflet-routing-machine'
 function createMap() {
   //the point of launching page
@@ -76,6 +79,9 @@ function createMap() {
   })
 }
 export default {
+  components: {
+    RandoFilter
+  },
   mounted() {
     createMap()
   }
