@@ -80,7 +80,9 @@ function createMap() {
       .bindPopup(
         '<strong>' +
           hike['name'] +
-          '</strong><p>' +
+          '</strong><i>  ' +
+          hike['R_duree'] +
+          '</i><p>' +
           hike['description'] +
           '</p>' +
           '<a href="' +
