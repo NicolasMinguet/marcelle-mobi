@@ -71,9 +71,17 @@ function createMap() {
   cinemas.forEach(function(cinema) {
     const mapMarker = L.marker(
       [cinema['coordinates']['latitude'], cinema['coordinates']['longitude']],
-      { icon: myIcon, name: cinema['name'], description: cinema['description'] }
+      { icon: myIcon }
     ).addTo(mymap)
-    mapMarker.bindPopup(cinema['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          cinema['name'] +
+          '</strong><p>' +
+          cinema['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

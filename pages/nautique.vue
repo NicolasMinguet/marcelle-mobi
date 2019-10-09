@@ -75,12 +75,18 @@ function createMap() {
         nautique['coordinates']['longitude']
       ],
       {
-        icon: myIcon,
-        name: nautique['name'],
-        description: nautique['description']
+        icon: myIcon
       }
     ).addTo(mymap)
-    mapMarker.bindPopup(nautique['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          nautique['name'] +
+          '</strong><p>' +
+          nautique['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

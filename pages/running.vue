@@ -72,12 +72,18 @@ function createMap() {
     const mapMarker = L.marker(
       [running['coordinates']['latitude'], running['coordinates']['longitude']],
       {
-        icon: myIcon,
-        name: running['name'],
-        description: running['description']
+        icon: myIcon
       }
     ).addTo(mymap)
-    mapMarker.bindPopup(running['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          running['name'] +
+          '</strong><p>' +
+          running['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

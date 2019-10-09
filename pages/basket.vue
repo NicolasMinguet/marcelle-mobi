@@ -71,9 +71,17 @@ function createMap() {
   baskets.forEach(function(basket) {
     const mapMarker = L.marker(
       [basket['coordinates']['latitude'], basket['coordinates']['longitude']],
-      { icon: myIcon, name: basket['name'], description: basket['description'] }
+      { icon: myIcon }
     ).addTo(mymap)
-    mapMarker.bindPopup(basket['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          basket['name'] +
+          '</strong><p>' +
+          basket['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

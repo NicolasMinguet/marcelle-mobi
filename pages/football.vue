@@ -75,12 +75,18 @@ function createMap() {
         football['coordinates']['longitude']
       ],
       {
-        icon: myIcon,
-        name: football['name'],
-        description: football['description']
+        icon: myIcon
       }
     ).addTo(mymap)
-    mapMarker.bindPopup(football['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          football['name'] +
+          '</strong><p>' +
+          football['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

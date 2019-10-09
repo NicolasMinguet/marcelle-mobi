@@ -72,12 +72,18 @@ function createMap() {
     const mapMarker = L.marker(
       [bowling['coordinates']['latitude'], bowling['coordinates']['longitude']],
       {
-        icon: myIcon,
-        name: bowling['name'],
-        description: bowling['description']
+        icon: myIcon
       }
     ).addTo(mymap)
-    mapMarker.bindPopup(bowling['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          bowling['name'] +
+          '</strong><p>' +
+          bowling['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

@@ -72,9 +72,17 @@ function createMap() {
   arcades.forEach(function(arcade) {
     const mapMarker = L.marker(
       [arcade['coordinates']['latitude'], arcade['coordinates']['longitude']],
-      { icon: myIcon, name: arcade['name'], description: arcade['description'] }
+      { icon: myIcon }
     ).addTo(mymap)
-    mapMarker.bindPopup(arcade['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          arcade['name'] +
+          '</strong><p>' +
+          arcade['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {

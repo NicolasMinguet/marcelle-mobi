@@ -71,9 +71,17 @@ function createMap() {
   plages.forEach(function(plage) {
     const mapMarker = L.marker(
       [plage['coordinates']['latitude'], plage['coordinates']['longitude']],
-      { icon: myIcon, name: plage['name'], description: plage['description'] }
+      { icon: myIcon }
     ).addTo(mymap)
-    mapMarker.bindPopup(plage['name']).openPopup()
+    mapMarker
+      .bindPopup(
+        '<strong>' +
+          plage['name'] +
+          '</strong><p>' +
+          plage['description'] +
+          '</p>'
+      )
+      .openPopup()
   })
 }
 export default {
