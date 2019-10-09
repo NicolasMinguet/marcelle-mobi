@@ -5,8 +5,8 @@
 </template>
 
 <script>
-// a la place de hikings -> football
-import footballs from '../static/football.js'
+// a la place de hikings -> cinema
+import cinemas from '../static/cinema.js'
 import * as L from 'leaflet'
 import RandoFilter from '~/components/RandoFilter.vue'
 // import 'leaflet-routing-machine'
@@ -68,7 +68,7 @@ function createMap() {
   //       ].split(',')[1])
   // console.log(hikings['kml']['Document']['Folder'])
 
-  footballs['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+  cinemas['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
     const mapMarker = L.marker(
       [
         hike['Point']['coordinates'].split(',')[1],

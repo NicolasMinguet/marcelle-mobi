@@ -13,7 +13,7 @@
       <b-collapse :visible="$store.state.map.filterVisible">
         <div v-if="$store.state.map.filterVisible" id="filter" class="container">
           <div class="row justify-content-between mx-0 clickable">
-            <div class="col-3 borderBottom" @click="this.$router.push({ path: '/bowling' })">
+            <div class="col-3 borderBottom" @click="$router.push({ path: '/bowling' })">
               <h2 class="lettreTransport text-primary">B</h2>
               <p class="textFilter">Bowling</p>
             </div>
@@ -50,17 +50,20 @@
               <p class="textFilter">Randonnées</p>
             </div>
 
-            <div @click="$router.push({ path: '/arcade' })" class="col-3">
+            <div @click="$router.push({ path: '/arcade' })" class="col-3 borderBottom">
               <h2 class="lettreTransport text-primary">A</h2>
               <p class="textFilter">Arcade</p>
             </div>
 
-            <div @click="$router.push({ path: '/plage' })" class="col-3 borderCentral">
+            <div @click="$router.push({ path: '/plage' })" class="col-3 borderCentral borderBottom">
               <h2 class="lettreTransport text-primary">P</h2>
               <p class="textFilter">Plage</p>
             </div>
 
-            <div @click="$router.push({ path: '/basket' })" class="col-3 borderCentral">
+            <div
+              @click="$router.push({ path: '/basket' })"
+              class="col-3 borderCentral borderBottom"
+            >
               <h2 class="lettreTransport text-primary">B</h2>
               <p class="textFilter">Basket</p>
             </div>
