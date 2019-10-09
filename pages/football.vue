@@ -36,7 +36,7 @@ function createMap() {
 
   // --- change icons ----
   var runningIcon = L.icon({
-    iconUrl: require('~/assets/images/running.png'),
+    iconUrl: require('~/assets/images/football.png'),
     iconSize: [35, 35],
     iconAnchor: [0, 0],
     popupAnchor: [0, 0],
