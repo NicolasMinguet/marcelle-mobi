@@ -108,7 +108,7 @@ export default {
     truc(actName) {
       console.log(actName)
 
-      this.$router.push({ path: '/hike' })
+      this.$router.push({ path: actName })
     }
   },
   created() {
