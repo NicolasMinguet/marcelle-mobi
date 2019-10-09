@@ -49,7 +49,7 @@ const hikings = {
             "numero": "3",
             "R_id": "943628",
             "type": "rando",
-            "description": "Beau circuit en bord de mer et dans la ville, empruntant majoritairement des pistes cyclables, trottoirs ou parc autorisés. p D 'une difficulté \"Moyenne\", elle devient \"Facile\" si on réalise la variante qui permet d' éviter la boucle vers la basilique de Notre - Dame de la Garde. Mais l 'on se prive alors de points de vues et de panoramas féeriques sur Marseille et sa rade.",
+            "description": "Beau circuit en bord de mer et et dans la ville, empruntant majoritairement des pistes cyclables, trottoirs ou parc autorisés. p D 'une difficulté \"Moyenne\", elle devient \"Facile\" si on réalise la variante qui permet d' éviter la boucle vers la basilique de Notre - Dame de la Garde. Mais l 'on se prive alors de points de vues et de panoramas féeriques sur Marseille et sa rade.",
             "R_duree": "2h30",
             "R_difficulte": "Moyenne",
             "R_typeLocomotion": "En cyclo-route",
