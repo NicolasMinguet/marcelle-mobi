@@ -3,8 +3,9 @@
 </template>
 
 <script>
+import hikings from '../static/hiking.js'
 import * as L from 'leaflet'
-import 'leaflet-routing-machine'
+// import 'leaflet-routing-machine'
 function createMap() {
   //the point of launching page
   var mymap = L.map('mapid').setView([43.295336, 5.373907], 15)
@@ -14,13 +15,13 @@ function createMap() {
     {
       attribution:
         'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
+      maxZoom: 12,
       id: 'mapbox.streets',
       accessToken: 'your.mapbox.access.token'
     }
   ).addTo(mymap)
 
-  // --- add points on the map ---
+  // --- add points on the map --- will be done later to use Robert's icon
   //var marker = L.marker([43.265744, 5.395173]).addTo(mymap);
 
   //var marker2 = L.marker([43.261088, 5.39804]).addTo(mymap);
@@ -30,23 +31,23 @@ function createMap() {
   }).addTo(mymap)
 
   // --- creating hiking paths ---
-  L.Routing.control({
-    waypoints: [
-      L.latLng(43.261088, 5.39804),
-      L.latLng(43.262, 5.4),
-      L.latLng(43.261088, 5.39804)
-    ],
-    routeWhileDragging: true
-  }).addTo(mymap)
+  // L.Routing.control({
+  //   waypoints: [
+  //     L.latLng(43.261088, 5.39804),
+  //     L.latLng(43.262, 5.4),
+  //     L.latLng(43.261088, 5.39804)
+  //   ],
+  //   routeWhileDragging: true
+  // }).addTo(mymap)
 
-  L.Routing.control({
-    waypoints: [
-      L.latLng(43.301999, 5.36554),
-      L.latLng(43.331999, 5.39554),
-      L.latLng(43.381999, 5.30554)
-    ],
-    routeWhileDragging: true
-  }).addTo(mymap)
+  // L.Routing.control({
+  //   waypoints: [
+  //     L.latLng(43.301999, 5.36554),
+  //     L.latLng(43.331999, 5.39554),
+  //     L.latLng(43.381999, 5.30554)
+  //   ],
+  //   routeWhileDragging: true
+  // }).addTo(mymap)
 
   // --- change icons ----
   var myIcon = L.icon({
@@ -57,10 +58,23 @@ function createMap() {
     shadowSize: [0, 0],
     shadowAnchor: [0, 0]
   })
+  // le console log fonction pour
+  // console.log(hikings['kml']['Document']['Folder']['Placemark'][0]['Point'][
+  //         'coordinates'
+  //       ].split(',')[1])
+  // console.log(hikings['kml']['Document']['Folder'])
 
-  L.marker([43.401999, 5.30804], { icon: myIcon }).addTo(mymap)
+  hikings['kml']['Document']['Folder']['Placemark'].forEach(function(hike) {
+    const mapMarker = L.marker(
+      [
+        hike['Point']['coordinates'].split(',')[1],
+        hike['Point']['coordinates'].split(',')[0]
+      ],
+      { icon: myIcon, name: hike['name'], description: hike['description'] }
+    ).addTo(mymap)
+    mapMarker.bindPopup(hike['name']).openPopup()
+  })
 }
-
 export default {
   mounted() {
     createMap()
