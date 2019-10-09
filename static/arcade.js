@@ -6,7 +6,7 @@ const arcades =
         "longitude": "5.480487",
       },
       "name": "Arcade, La tête dans les nuages",
-      "description": "ouoau",
+      "description": "Les centres de loisirs La Tête Dans Les Nuages vous accueillent pour des moments ludiques et originaux en famille ou entre amis.",
     }
 
   ]

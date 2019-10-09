@@ -6,7 +6,7 @@ const cinemas =
         "longitude": "5.373663",
       },
       "name": "Cinéma le Prado",
-      "description": "ouoau",
+      "description": "Cinéma à la programmation grand public avec avant-premières et opéras du Royal Opera House de Londres.",
     },
 
     {
@@ -15,7 +15,7 @@ const cinemas =
         "longitude": "5.399850000000015",
       },
       "name": "Pathé Madeleine",
-      "description": "ouoau",
+      "description": "Chaîne de multiplexes avec une programmation de sorties nationales, avant-premières et séances spéciales.",
     },
 
     {
@@ -24,7 +24,7 @@ const cinemas =
         "longitude": "5.3913302",
       },
       "name": "Cinema le Chambord",
-      "description": "ouoau",
+      "description": "Cinéma de quartier comprenant plusieurs salles avec une programmation variée et des projections en VOST.",
     }
 
 

@@ -6,7 +6,7 @@ const bowlings =
         "longitude": "5.427559999999971",
       },
       "name": "BowlingStar Marseille",
-      "description": "ouoau",
+      "description": "Bowling moderne adapté aux familles avec billards et bar ; disponible à la location pour événements.",
     },
 
   ]
