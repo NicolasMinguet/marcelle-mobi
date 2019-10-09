@@ -75,20 +75,19 @@ function createMap() {
       ],
       { icon: myIcon }
     ).addTo(mymap)
-    mapMarker
-      .bindPopup(
-        '<strong>' +
-          hike['name'] +
-          '</strong><i>  ' +
-          hike['R_duree'] +
-          '</i><p>' +
-          hike['description'] +
-          '</p>' +
-          '<a href="' +
-          hike['linkRando'] +
-          '">Lien vers la randonnée</a>'
-      )
-      .openPopup()
+    mapMarker.bindPopup(
+      '<strong>' +
+        hike['name'] +
+        '</strong><i>  ' +
+        hike['R_duree'] +
+        '</i><p>' +
+        hike['description'] +
+        '</p>' +
+        '<a href="' +
+        hike['linkRando'] +
+        '">Lien vers la randonnée</a>'
+    )
+    // .openPopup()
   })
 }
 export default {
